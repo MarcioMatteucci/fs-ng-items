@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">
+      <form (ngSubmit)="onSubmit()" class="col s6">
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="text" placeholder="Ingrese un Título" [(ngModel)]="item.title" name="title">
+            <label>Título</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="text" placeholder="Ingrese una Descripción" [(ngModel)]="item.description" name="description">
+            <label>Descripción</label>
+          </div>
+          <input type="submit" value="Agregar" class="btn">
+        </div>
+      </form>
+    </span>
+  </div>
+</div>
