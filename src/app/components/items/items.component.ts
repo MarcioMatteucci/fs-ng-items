@@ -11,6 +11,8 @@ import { Item } from './../../models/Item';
 export class ItemsComponent implements OnInit {
 
   items: Item[];
+  editState = false;
+  itemToEdit: Item;
 
   constructor(
     private itemService: ItemService
@@ -24,8 +26,24 @@ export class ItemsComponent implements OnInit {
       });
   }
 
-  deleteItem(event, item) {
+  deleteItem(event, item: Item) {
     this.itemService.deleteItem(item);
+    this.clearState();
+  }
+
+  editItem(event, item: Item) {
+    this.editState = true;
+    this.itemToEdit = item;
+  }
+
+  updateItem(item: Item) {
+    this.itemService.updateItem(item);
+    this.clearState();
+  }
+
+  clearState() {
+    this.editState = false;
+    this.itemToEdit = null;
   }
 
 }
